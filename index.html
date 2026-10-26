@@ -239,8 +239,7 @@
     car.addEventListener('scroll',fades);
     z.addEventListener('wheel',function(e){
       if(e.ctrlKey)return;var d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;if(!d)return;
-      var atStart=car.scrollLeft<=0,atEnd=car.scrollLeft+car.clientWidth>=car.scrollWidth-1;
-      if((d>0&&!atEnd)||(d<0&&!atStart)){e.preventDefault();car.scrollLeft+=d}   /* at either end the page scrolls as usual */
+      e.preventDefault();car.scrollLeft+=d;   /* the wheel stays on the carousel for as long as the cursor is in the zone */
     },{passive:false})});
   window.addEventListener('resize',fades);fades();
 
