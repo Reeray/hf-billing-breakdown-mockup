@@ -15,7 +15,7 @@ Before = exact live markup from huggingface.co (org `huggingface`, Sep 2026 peri
 7. **Lists hang off the same curve connector as Jobs**: Spaces and Endpoints rows sit inside the `15×28` curve block, so every group's detail reads as a child of its title.
 8. **Spaces and Endpoints are collapsible**: rows are sorted by expense (highest first) and the top 7 show by default. The rest sit behind the profile page's list control from `NamespacedRepoList.svelte` (gradient hairlines fading in from the edges, bordered pill with caret, "Show 6 more spaces"), which flips to "Show less". The dashed-rule button from the payments section was tried first and dropped as off-system.
 9. **Inference providers and Jobs hardware become carousels**: one row each, `overflow-x-auto no-scrollbar`. Edge fades are the existing `bg-linear-to-l/r from-white to-transparent` overlays, shown only on the side that has more content, so the first provider is never faded at rest.
-   - **Cursor in the zone** (the Inference section, or the Jobs group): the carousel surface fills with `bg-gray-100`, the same hover fill the expand pill uses, on a `rounded-lg` wrapper (`-mx-2 px-2 -mt-1 -mb-1 py-1`, so nothing moves). The edge fades switch to `from-gray-100` so they stay seamless. Pure utilities: `group` on the zone, `group-hover:` on the wrapper and fades. A `shadow-sm` + ring lift was tried first and dropped for the fill.
+   - **Cursor in the zone** (the Inference section, or the Jobs group): the carousel surface fills with `bg-gray-50`, the lightest hover fill in the system (the one list rows and menu items use; `bg-gray-100`, the pill's hover, was tried first and read too dark), on a `rounded-lg` wrapper (`-mx-2 px-2 -mt-1 -mb-1 py-1`, so nothing moves). The edge fades switch to `from-gray-50` so they stay seamless. Pure utilities: `group` on the zone, `group-hover:` on the wrapper and fades. A `shadow-sm` + ring lift was tried first and dropped for the fill.
    - **Wheel drives the carousel**: while the cursor is anywhere in the zone, the scroll wheel moves the row sideways and never the page, including at either end of the row. Moving the cursor out of the zone hands the wheel back to the page.
 
 ## Spacing
@@ -33,7 +33,7 @@ Type sizes, chip and badge components, dotted leaders, the period header, the ta
 
 ## Mockup-only CSS
 
-Only one state hook (`.bk-expanded`) and `hover:underline`, which is a stock Tailwind utility absent from this purged build. Everything visible uses classes that exist in the compiled stylesheet.
+Only one state hook (`.bk-expanded`) plus two stock Tailwind utilities absent from this purged build, `hover:underline` and `group-hover:from-gray-50` (written in the same shape as the compiled `group-hover:from-gray-100` rule). Everything visible uses classes that exist in the compiled stylesheet.
 
 ## Fonts
 
