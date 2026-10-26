@@ -35,6 +35,10 @@ Type sizes, chip and badge components, dotted leaders, the period header, the ta
 
 Only one state hook (`.bk-expanded`) and `hover:underline`, which is a stock Tailwind utility absent from this purged build. Everything visible uses classes that exist in the compiled stylesheet.
 
+## Fonts
+
+`fonts/` holds the 49 woff2 files the stylesheet references (Source Sans Pro, Charter, …), copied from huggingface.co. They must be self-hosted: huggingface.co serves them without a CORS header, so a cross-origin page falls back to the system font and every weight and width looks off.
+
 ## Regenerate
 
 `python src/build.py src/live src/icons index.html` — `src/live/section.html` is the captured live section, `src/live/shell.html` the page chrome (scripts, props and tokens stripped).
